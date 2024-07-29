@@ -10,6 +10,7 @@ const userRoutes = require('./src/routes/userRoutes');
 const projectRoutes = require('./src/routes/projectRoutes');
 const processRoutes = require('./src/routes/processRoutes');
 const tokensRoutes = require('./src/routes/tokenRoutes');
+const settingRoutes = require('./src/routes/settingRoutes');
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require('swagger-ui-express');
 const swaggerOptions = require('./src/services/swagger/swaggerOptions');
@@ -27,9 +28,12 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Hello from the API!' });
 });
 
+app.use('/api/v1/settings',settingRoutes);
 app.use('/api/v1/user',userRoutes);
 app.use('/api/v1/project',projectRoutes);
 app.use('/api/v1/process',processRoutes);
+app.use('/api/v1/profile',processRoutes);
+app.use('/api/v1/role',processRoutes);
 app.use('/api/v1/token',tokensRoutes);
 
 const specs = swaggerJSDoc(swaggerOptions);
