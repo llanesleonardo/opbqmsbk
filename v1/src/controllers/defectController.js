@@ -1,26 +1,27 @@
 const {
-    getProcessesRepo,
-} = require('../database/repositories/processRepository');
+    getDefectRepo,
+} = require('../database/repositories/defectRepository');
 require('dotenv').config();
 
 
 
-const getProcesses = (req, res) => {
-    const processes = getProcessesRepo();
+const getDefects = (req, res) => {
+    const defects = getDefectRepo();
     res.json(
         {
-            processes:processes,
+            defects:defects,
             columns:[
             { header: 'ID', accessor: 'id' },
             { header: 'Name', accessor: 'pname' },
+            { header: 'Description', accessor: 'ddesc' },
             { header: 'Status', accessor: 'statusId' },
             { header: 'Category', accessor: 'categoryId' },
             { header: 'Priority', accessor: 'priorityId' },
             { header: 'Department', accessor: 'departmentId' },
             { header: 'Owner', accessor: 'userId' },
-            { header: 'Company', accessor: 'companyId' },
             { header: 'Cost', accessor: 'initialcost' },
             { header: 'Budget', accessor: 'initialbudget' },
+            { header: 'Final cost', accessor: 'finalcost' },
             { header: 'Start date', accessor: 'start_at' },
             { header: 'Due date', accessor: 'end_at' },
             { header: 'Update date', accessor: 'updated_at' },
@@ -32,4 +33,4 @@ const getProcesses = (req, res) => {
 };
 
 
-module.exports = { getProcesses};
+module.exports = { getDefects};

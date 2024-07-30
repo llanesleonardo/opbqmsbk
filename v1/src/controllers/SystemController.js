@@ -5,4 +5,11 @@ const getSystemSettings = (req, res) => {
     res.json(systemSettingsData);
 };
 
-module.exports = { getSystemSettings };
+
+const getModuleStructureSettings = (req, res) => {
+    const modulesSettingData = settings.modulesSettings;
+    res.json(modulesSettingData.modulesStructure);
+};
+
+
+module.exports = { getSystemSettings,getModuleStructureSettings };
